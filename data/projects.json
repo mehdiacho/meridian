@@ -1,0 +1,1573 @@
+{
+  "updated": "2026-10-17",
+  "updatedBy": "agent:claude-code 4fe5c56a, 58c5c86b",
+  "source": "Seeded from X:ProjectsPROJECTS-INVENTORY.md, Mehdi's 2026-10-16 decisions (relayed from the Software Projects thread) and X:ai.toolsworklog (INDEX.md + projects/*.md).",
+  "projects": [
+    {
+      "id": "ark",
+      "name": "ARK",
+      "summary": "Personal document vault (Android). Kin Keep and Arc merge into it; the DPA layer is deferred.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "ARK app",
+        "also": [
+          "Claude Code (desktop) fdd4b88a"
+        ]
+      },
+      "where": {
+        "path": "X:\\Ventures\\02_AI_BLACKWALL\\software\\ARK",
+        "repo": null,
+        "branch": null,
+        "notes": "No remote; 38 uncommitted paths"
+      },
+      "stack": "Kotlin/Android, Firebase",
+      "lastActivity": "2026-10-04",
+      "next": [
+        "Push to a private repo under mehdiacho",
+        "Prove the uploader fix",
+        "Act on DESIGN_REQUEST.md"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "smartspend",
+      "name": "SmartSpend",
+      "summary": "Budgeting, catalogue and receipt capture, plus an admin app. Absorbs the other budget apps.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "SmartSpend goal and roadmap",
+        "also": [
+          "Claude Code (desktop) fdd4b88a"
+        ]
+      },
+      "where": {
+        "path": "X:\\Projects\\smartspend",
+        "repo": "mehdiacho/smartspend",
+        "branch": null,
+        "notes": "44 modified files; smartspend-admin has no remote"
+      },
+      "stack": "React, Firebase, Gemini; Android",
+      "lastActivity": "2026-09-15",
+      "next": [
+        "Commit the 44 modified files",
+        "Push smartspend-admin to a private repo",
+        "Register the release keystore SHA-1",
+        "Budget goal and month scoping"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "tether",
+      "name": "Tether",
+      "summary": "Agent-first notification server on the NAS plus its Android app. claude-phone folds into it; UI rework planned.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Tether rework",
+        "also": [
+          "Claude Code (desktop) 0315d5b0, db79b8c5"
+        ]
+      },
+      "where": {
+        "path": "X:Projects\tether",
+        "repo": "mehdiacho/tether",
+        "branch": "dev",
+        "notes": "Stage A + Prefs.kt fix committed as 7e9ca49 and pushed; NAS runs 0.2.1"
+      },
+      "stack": "TypeScript server + MCP, Kotlin",
+      "lastActivity": "2026-10-17",
+      "next": [
+        "Mehdi's decisions on the rework plan",
+        "UI rework",
+        "Fold in claude-phone (no code found; may be spec only)",
+        "Rotate the leaked token (Mehdi: ignore for now)"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Decide the rework plan so the UI rework can start"
+    },
+    {
+      "id": "tachimana",
+      "name": "TachiMana",
+      "summary": "Desktop Mihon: manga reader with remote storage and a large cache.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "TachiMana desktop Mihon",
+        "also": [
+          "Claude Code (desktop) b47553c4"
+        ]
+      },
+      "where": {
+        "path": "X:ProjectsTachiMana",
+        "repo": "mehdiacho/TachiMana",
+        "branch": "main",
+        "notes": "Private repo 2026-10-16; remote storage port planned, not started"
+      },
+      "stack": "Kotlin Compose Multiplatform",
+      "lastActivity": "2026-10-16",
+      "next": [
+        "Port remote storage (WebDAV) and naming from the custom Mihon",
+        "10 GB LRU disk cache",
+        "Finish the baseline test run"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "greenforest-site",
+      "name": "Green Forest site",
+      "summary": "greenforest.app landing page, rebuilt from Ventures context with the blueprint design system, colour and media.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Green Forest website",
+        "also": [
+          "Codex (desktop) 01a0a1aa"
+        ]
+      },
+      "where": {
+        "path": "X:\\Projects\\greenforest-site",
+        "repo": null,
+        "branch": null,
+        "notes": "Not a git repo yet"
+      },
+      "stack": "Static HTML",
+      "lastActivity": "2026-10-08",
+      "next": [
+        "Rebuild from Ventures context",
+        "Apply the blueprint design system plus colour and media"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "windows-ai-browser",
+      "name": "Windows AI browser",
+      "summary": "AI-native browser for Windows; restarting with the stack re-evaluated (Electron vs Rust vs C/C++).",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Windows AI browser restart",
+        "also": [
+          "Claude Code (desktop) d1d49c37"
+        ]
+      },
+      "where": {
+        "path": "X:Projectswindows-ai-browser",
+        "repo": "mehdiacho/windows-ai-browser",
+        "branch": "main",
+        "notes": "Private repo 2026-10-17; docs/STACK-DECISION.md"
+      },
+      "stack": "Electron/TS/React + Rust napi-rs addons (proposed)",
+      "lastActivity": "2026-10-17",
+      "next": [
+        "Agent loop in @wab/agent",
+        "Red-team fixture before the agent goes beyond read-only"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "OK the stay-on-Electron decision; answer: BYO key at launch, which actions gate on Windows Hello, no extensions at v1, code-signing spend"
+    },
+    {
+      "id": "a-testers",
+      "name": "A-Testers",
+      "summary": "Web and Android app; ready to push toward launch.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "A-Testers launch",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\A-Testers",
+        "repo": null,
+        "branch": null,
+        "notes": "No remote"
+      },
+      "stack": "Web + Android, Firebase",
+      "lastActivity": "2026-09-02",
+      "next": [
+        "Push to a private repo",
+        "Launch"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "nightly",
+      "name": "Nightly",
+      "summary": "Dormant project revived: get a working build first.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Nightly first build",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\nightly",
+        "repo": null,
+        "branch": null,
+        "notes": "Remote unknown"
+      },
+      "stack": "unknown",
+      "lastActivity": null,
+      "next": [
+        "Get a working build"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "meridian",
+      "name": "MERIDIAN",
+      "summary": "Daily record with pluggable feeds; first module is this dashboard across all projects and AI tools.",
+      "group": "ventures",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Meridian dashboard",
+        "also": [
+          "Claude Code (desktop) 4fe5c56a, 58c5c86b"
+        ]
+      },
+      "where": {
+        "path": "X:\\Ventures\\02_AI_BLACKWALL\\software\\MERIDIAN-app",
+        "repo": "mehdiacho/meridian",
+        "branch": "main",
+        "notes": "Spec stays in X:\\Ventures\\02_AI_BLACKWALL\\software\\MERIDIAN"
+      },
+      "stack": "Static HTML + JSON (projects module); FastAPI + React later",
+      "lastActivity": "2026-10-17",
+      "next": [
+        "Use the dashboard daily",
+        "Then the day view (spec Phase 1)"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "ventures-platform",
+      "name": "Ventures platform v2",
+      "summary": "The Ventures operating log; v2 moves it off a static site.",
+      "group": "ventures",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ventures operating log v2",
+        "also": [
+          "Cowork (Ventures daily run)"
+        ]
+      },
+      "where": {
+        "path": "X:\\Ventures\\platform",
+        "repo": "mehdiacho/Ventures",
+        "branch": "main",
+        "notes": "65 uncommitted paths in the Ventures repo"
+      },
+      "stack": "Static HTML + build.py (v1)",
+      "lastActivity": null,
+      "next": [
+        "Design v2 (not static)",
+        "Commit or sort the 65 uncommitted paths"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "zeus",
+      "name": "ZEUS (FDR system)",
+      "summary": "BPC FDR system: polish, archive, and add to the portfolio.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Zeus FDR polish",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\bpc-fdr-system",
+        "repo": null,
+        "branch": null,
+        "notes": "Remote unknown"
+      },
+      "stack": "unknown",
+      "lastActivity": null,
+      "next": [
+        "Polish",
+        "Archive",
+        "Add to the portfolio"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "house-hunter",
+      "name": "House Hunter",
+      "summary": "To be rebuilt as a rental listing platform under a new name.",
+      "group": "software",
+      "status": "active",
+      "decision": "push",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "House Hunter rental platform",
+        "also": [
+          "Claude Code (desktop) a8b33bcd"
+        ]
+      },
+      "where": {
+        "path": "X:Projectshouse-hunter",
+        "repo": "mehdiacho/house-hunter",
+        "branch": "main",
+        "notes": "Private repo 2026-10-17; PLAN.md written"
+      },
+      "stack": "Firebase + React",
+      "lastActivity": "2026-10-17",
+      "next": [
+        "Build per PLAN.md",
+        "Decide whether it gets its own Firebase project"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Pick the new name (recommended: Keyhold) and whether it gets its own Firebase project"
+    },
+    {
+      "id": "chemscan-companion",
+      "name": "ChemScan Companion",
+      "summary": "Always-on-top ChemScan LCA settings calculator with bubble mode and a names list.",
+      "group": "software",
+      "status": "active",
+      "decision": null,
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 2427ff79",
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": "mehdiacho/chemscan-companion",
+        "branch": "main",
+        "notes": "Public; v0.1.3 released with auto-update"
+      },
+      "stack": "Tauri 2, Rust, React",
+      "lastActivity": "2026-10-17",
+      "next": [
+        "Verify the MSI copy auto-updates"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "pdfcraft-android",
+      "name": "PdfCraft Android",
+      "summary": "Android build of PdfCraft in his fork.",
+      "group": "software",
+      "status": "active",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "PdfCraft Android",
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": "mehdiacho/pdfcraft",
+        "branch": "feat/android-app",
+        "notes": "Draft PR #1"
+      },
+      "stack": "Rust egui + Kotlin shell",
+      "lastActivity": "2026-10-16",
+      "next": [
+        "Mobile layout per design",
+        "Test on the NAS x86_64 emulator"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "video-player",
+      "name": "Video player (Projector)",
+      "summary": "Own desktop video player vs a VLC reskin; Rust + libmpv + Tauri chosen. Name TBD.",
+      "group": "software",
+      "status": "active",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Own video player vs VLC reskin",
+        "also": [
+          "Claude Code (desktop) 00dcf35c"
+        ]
+      },
+      "where": {
+        "path": "X:\\Projects\\projector",
+        "repo": null,
+        "branch": null,
+        "notes": "Local git, no remote; backbone written, not compiled yet"
+      },
+      "stack": "Tauri 2, React overlay, libmpv",
+      "lastActivity": "2026-10-16",
+      "next": [
+        "First build and fixes",
+        "Prove video under WebView"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Install VS 2022 Build Tools + Rustup; OK the libmpv-2.dll download; pick a name"
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio (mehdiacho.tech)",
+      "summary": "Public portfolio site with a Firestore-backed project list and admin.",
+      "group": "software",
+      "status": "pending",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) c80c3be9, 8a001e1e",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\portfolio",
+        "repo": "mehdiacho/mehdiacho.github.io",
+        "branch": null,
+        "notes": "PR #10 open"
+      },
+      "stack": "React 19, Vite, Tailwind 4, Firebase, CF Worker + D1",
+      "lastActivity": "2026-10-13",
+      "next": [
+        "Merge PR #10"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Merge PR #10, reword the Background quote, pick canonical CAD models"
+    },
+    {
+      "id": "3d-prints",
+      "name": "3D prints",
+      "summary": "Key fob, charger brace, ice tray rack, laptop stand: blueprints, models and a public repo.",
+      "group": "hardware",
+      "status": "pending",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 61c1912f",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\3d-prints",
+        "repo": "mehdiacho/3d-prints",
+        "branch": null,
+        "notes": "Also X:\\Projects\\3d"
+      },
+      "stack": "Fusion, Python",
+      "lastActivity": "2026-10-13",
+      "next": [
+        "Make blueprints browser-viewable"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Decide how the blueprints are hosted"
+    },
+    {
+      "id": "desk-twin",
+      "name": "Desk Twin",
+      "summary": "Parametric 3D model of the workspace, generated from a millimetre survey file.",
+      "group": "hardware",
+      "status": "paused",
+      "decision": "keep",
+      "ai": {
+        "kind": "codex",
+        "name": "Codex (desktop) 01a0a1aa",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\desk-twin",
+        "repo": null,
+        "branch": null,
+        "notes": "Not a git repo"
+      },
+      "stack": "three.js",
+      "lastActivity": "2026-10-08",
+      "next": [
+        "Measure the desk"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Re-measure the desk (nothing measured yet)"
+    },
+    {
+      "id": "yap",
+      "name": "Yap",
+      "summary": "Voice capture and transcription for personal use, with an MCP server for agents. Polish only.",
+      "group": "software",
+      "status": "paused",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 3b507ee6",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\yap",
+        "repo": "mehdiacho/yap",
+        "branch": null,
+        "notes": "Commit 021288a unpushed; also yap-desktop"
+      },
+      "stack": "Kotlin, React/Tauri, Firebase",
+      "lastActivity": "2026-09-23",
+      "next": [
+        "Push 021288a",
+        "UI polish later",
+        "MCP server is designed, not built"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "mihon",
+      "name": "Custom Mihon + Komga",
+      "summary": "Mihon fork reading from Komga on the NAS.",
+      "group": "software",
+      "status": "pending",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 344dc406",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\mihon",
+        "repo": "mehdiacho/mihon",
+        "branch": "custom",
+        "notes": ""
+      },
+      "stack": "Kotlin",
+      "lastActivity": "2026-09-24",
+      "next": [
+        "Publish the custom build on his GitHub"
+      ],
+      "blockedOn": "mehdi",
+      "ask": "Describe the intermittent bug"
+    },
+    {
+      "id": "stratum",
+      "name": "STRATUM",
+      "summary": "Video-to-context pipeline; Phase 0 ran on mocks. Approach being rethought.",
+      "group": "ventures",
+      "status": "paused",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Stratum video-to-context research",
+        "also": [
+          "Claude Code (desktop) 9eaecae9"
+        ]
+      },
+      "where": {
+        "path": "X:Ventures\u0002_AI_BLACKWALLsoftwareSTRATUM",
+        "repo": "mehdiacho/stratum",
+        "branch": "master",
+        "notes": "Private repo created 2026-10-17; runs/ media kept out of git"
+      },
+      "stack": "Python, React",
+      "lastActivity": "2026-10-17",
+      "next": [
+        "Rethink the video-to-context approach"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "github-stats",
+      "name": "GitHub stats tool",
+      "summary": "Viral GitHub stats tool idea.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "GitHub stats tool",
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Brainstorm"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "product-catalog",
+      "name": "Product catalog service",
+      "summary": "Standalone product/stock database + API other apps hit for product data.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": [
+          "Claude Code (desktop) fdd4b88a"
+        ]
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": "2026-09-07",
+      "next": [
+        "Rethink"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "superapp",
+      "name": "SuperApp",
+      "summary": "Idea; folder is empty.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\superapp",
+        "repo": null,
+        "branch": null,
+        "notes": "Empty"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Rethink"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "panels",
+      "name": "Panels",
+      "summary": "Dormant idea.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\panels",
+        "repo": null,
+        "branch": null,
+        "notes": "Also panelsFS"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Rethink"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "fitguy",
+      "name": "FitGirl tool (fitguy)",
+      "summary": "Dormant tool idea.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\fitguy",
+        "repo": null,
+        "branch": null,
+        "notes": "Local only, at risk"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Rethink",
+        "Back up"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "proofvault",
+      "name": "ProofVault",
+      "summary": "Dormant idea.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\ProofVault",
+        "repo": null,
+        "branch": null,
+        "notes": "Local only, at risk"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Rethink",
+        "Back up"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "prints",
+      "name": "Prints (Print-AI)",
+      "summary": "Live; up for a rethink.",
+      "group": "ideas",
+      "status": "done",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Rethink"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "git-grid",
+      "name": "git-grid",
+      "summary": "Live; up for a rethink.",
+      "group": "ideas",
+      "status": "done",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\git-grid",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Rethink"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "fpx-now",
+      "name": "fpx-now",
+      "summary": "Live; code review wanted.",
+      "group": "ideas",
+      "status": "done",
+      "decision": "research",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "Ideas to rethink",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\fpx-now",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Code review"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "backup-cleanup",
+      "name": "GitHub backup and cleanup",
+      "summary": "Every local-only or unpushed project goes to a private repo on mehdiacho; empty folders deleted.",
+      "group": "housekeeping",
+      "status": "active",
+      "decision": "backup",
+      "ai": {
+        "kind": "claude-project-thread",
+        "name": "GitHub backup and cleanup",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects",
+        "repo": null,
+        "branch": null,
+        "notes": "At risk: SpriteBox, richup.io, Cyber Audit, fitguy, scraper, baby-torr, brainbox, IdeaSpace, cascade, homedata, ProofVault, house-hunter, smartspend-admin"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Push each local-only project to a private repo",
+        "Publish the custom Mihon",
+        "Delete empty folders"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "nas-subdomain-finder",
+      "name": "NAS subdomain finder",
+      "summary": "Idea; keep as is.",
+      "group": "ideas",
+      "status": "idea",
+      "decision": "keep",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "tally-counter",
+      "name": "tally-counter",
+      "summary": "Done and live.",
+      "group": "software",
+      "status": "done",
+      "decision": "keep",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\tally-counter",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "dither",
+      "name": "dither",
+      "summary": "Done and live.",
+      "group": "software",
+      "status": "done",
+      "decision": "keep",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\dither",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "claude-code-modding",
+      "name": "Claude Code modding",
+      "summary": "Mods for Claude Code; waits on use cases.",
+      "group": "software",
+      "status": "paused",
+      "decision": "keep",
+      "ai": {
+        "kind": "claude-code",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": "Location unknown"
+      },
+      "stack": null,
+      "lastActivity": "2026-10-12",
+      "next": [],
+      "blockedOn": "mehdi",
+      "ask": "Bring use cases"
+    },
+    {
+      "id": "academic",
+      "name": "Academic work",
+      "summary": "Thesis and coursework; keep as is.",
+      "group": "academic",
+      "status": "active",
+      "decision": "keep",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "dpla-security",
+      "name": "DPLA Security + Cyber Audit",
+      "summary": "Security work; keep as is.",
+      "group": "academic",
+      "status": "paused",
+      "decision": "keep",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\DPLA Security",
+        "repo": null,
+        "branch": null,
+        "notes": "Cyber Audit is local only, at risk"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Back up Cyber Audit"
+      ],
+      "blockedOn": null
+    },
+    {
+      "id": "filmarr",
+      "name": "Filmarr / Theater",
+      "summary": "Low priority.",
+      "group": "software",
+      "status": "paused",
+      "decision": "low",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\filmarr-android",
+        "repo": null,
+        "branch": null,
+        "notes": "Also theatarr"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "machine-strike",
+      "name": "Machine Strike",
+      "summary": "Low priority.",
+      "group": "software",
+      "status": "paused",
+      "decision": "low",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\strike",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "stockpiece",
+      "name": "StockPiece",
+      "summary": "Low priority.",
+      "group": "software",
+      "status": "paused",
+      "decision": "low",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\stockpiece",
+        "repo": null,
+        "branch": null,
+        "notes": "Also stockpiecegui"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "oharanet",
+      "name": "OharaNet",
+      "summary": "Low priority.",
+      "group": "software",
+      "status": "paused",
+      "decision": "low",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "gods-eye-view",
+      "name": "God's Eye View",
+      "summary": "Vendored live-globe OSINT console. No decision recorded on 2026-10-16.",
+      "group": "software",
+      "status": "paused",
+      "decision": null,
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 75590cec",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\gods-eye-view",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": "2026-09-12",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "hydroponics",
+      "name": "Hydroponic tower",
+      "summary": "DIY hydroponic tower build. Not in the 2026-10-16 software inventory.",
+      "group": "hardware",
+      "status": "paused",
+      "decision": null,
+      "ai": {
+        "kind": "codex",
+        "name": "Codex (desktop)",
+        "also": [
+          "Cowork (Ventures daily run) ea2e22d3",
+          "Claude Code (desktop) fdd4b88a"
+        ]
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": "Worklog only"
+      },
+      "stack": null,
+      "lastActivity": "2026-09-14",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "kinkeep",
+      "name": "Kin Keep / Arc",
+      "summary": "Merged into ARK.",
+      "group": "software",
+      "status": "done",
+      "decision": "merged",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) fdd4b88a",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\Family-Vault",
+        "repo": "mehdiacho/kinkeep",
+        "branch": null,
+        "notes": "Merged into ARK"
+      },
+      "stack": "Firebase",
+      "lastActivity": "2026-09-07",
+      "next": [],
+      "blockedOn": null,
+      "mergedInto": "ark"
+    },
+    {
+      "id": "claude-phone",
+      "name": "claude-phone",
+      "summary": "Phone bridge; merges into Tether.",
+      "group": "software",
+      "status": "done",
+      "decision": "merged",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": "No Twilio code under X:Projects or X:ai.tools (searched 2026-10-17); no Twilio account exists"
+      },
+      "stack": "Twilio, Node",
+      "lastActivity": "2026-09-29",
+      "next": [
+        "Fold into Tether"
+      ],
+      "blockedOn": null,
+      "mergedInto": "tether"
+    },
+    {
+      "id": "comm-serve",
+      "name": "Comm-Serve WhatsApp agent",
+      "summary": "WhatsApp AI ordering agent for Karl's agency. Shelved.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 75adaf5a",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Comm-Serve\\wa-agent",
+        "repo": null,
+        "branch": null,
+        "notes": "No git"
+      },
+      "stack": "CF Worker + D1",
+      "lastActivity": "2026-09-16",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "register110x",
+      "name": "register110X",
+      "summary": "BIUST lab attendance register. Archived.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) 75c7f65f",
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\register110X",
+        "repo": "mehdiacho/register110X",
+        "branch": null,
+        "notes": ""
+      },
+      "stack": "Python FastAPI",
+      "lastActivity": "2026-09-14",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "ir-lab",
+      "name": "IR Lab",
+      "summary": "Shelved.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\ir-l",
+        "repo": "mehdiacho/ir-l",
+        "branch": null,
+        "notes": ""
+      },
+      "stack": "Kotlin",
+      "lastActivity": "2026-09-23",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "fish-player",
+      "name": "Fish Player",
+      "summary": "Live on the NAS; shelved.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\fish-player",
+        "repo": "mehdiacho/fish-player",
+        "branch": null,
+        "notes": ""
+      },
+      "stack": "Node, Windows, Android",
+      "lastActivity": "2026-08-30",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "sengoku-jidai",
+      "name": "Sengoku Jidai",
+      "summary": "Shelved.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\sengoku-jidai",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "deliver-e",
+      "name": "Deliver-E family",
+      "summary": "Shelved.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\Deliver-E",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "intellicy",
+      "name": "Intellicy cluster",
+      "summary": "Shelved.",
+      "group": "software",
+      "status": "shelved",
+      "decision": "shelve",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\intellicy-dev",
+        "repo": null,
+        "branch": null,
+        "notes": "Plus intellicy-authentication, policy-making-*"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "craft-suite",
+      "name": "Craft Suite fork",
+      "summary": "Bring-your-own-AI fork of ArtCraft. Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "claude-code",
+        "name": "Claude Code (desktop) b7073a63",
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": "2026-10-12",
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "subcraft",
+      "name": "SubCraft",
+      "summary": "Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\SubCraft",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "spritebox",
+      "name": "SpriteBox",
+      "summary": "Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\SpriteBox",
+        "repo": null,
+        "branch": null,
+        "notes": "Local only"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "aistudio-sync",
+      "name": "AI Studio Sync",
+      "summary": "Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\aistudio-sync",
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "wand-enhancer",
+      "name": "Wand-Enhancer",
+      "summary": "Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": null,
+        "repo": null,
+        "branch": null,
+        "notes": ""
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "orbit-ai",
+      "name": "Orbit-AI",
+      "summary": "Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\Orbit-AI",
+        "repo": null,
+        "branch": null,
+        "notes": "Also orbit"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "richup",
+      "name": "richup.io folder",
+      "summary": "Chucked.",
+      "group": "software",
+      "status": "chucked",
+      "decision": "chuck",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects\\richup.io",
+        "repo": null,
+        "branch": null,
+        "notes": "Local only"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [],
+      "blockedOn": null
+    },
+    {
+      "id": "dormant-misc",
+      "name": "Other dormant folders",
+      "summary": "Ext10, transcriber, flashback, highrise, bibverify, autofixer, scraper, baby-torr, brainbox, IdeaSpace, cascade, homedata. No decision beyond backup.",
+      "group": "housekeeping",
+      "status": "paused",
+      "decision": "backup",
+      "ai": {
+        "kind": "unknown",
+        "name": null,
+        "also": []
+      },
+      "where": {
+        "path": "X:\\Projects",
+        "repo": null,
+        "branch": null,
+        "notes": "Several are local only"
+      },
+      "stack": null,
+      "lastActivity": null,
+      "next": [
+        "Back up the local-only ones"
+      ],
+      "blockedOn": null
+    }
+  ],
+  "homelab": [
+    {
+      "name": "Android emulator",
+      "status": "warn",
+      "note": "Restarted 2026-10-15; arm64 GameActivity apps crash on it; needs a restart policy"
+    },
+    {
+      "name": "OpenWA (wa-bot)",
+      "status": "warn",
+      "note": "Session restarted 2026-10-02; watchdog proposed"
+    },
+    {
+      "name": "Tailscale",
+      "status": "warn",
+      "note": "Auth key leaked; rotation deferred by Mehdi"
+    },
+    {
+      "name": "Home Assistant",
+      "status": "ok",
+      "note": ""
+    },
+    {
+      "name": "Komga",
+      "status": "ok",
+      "note": "Backs the custom Mihon"
+    },
+    {
+      "name": "Tether server",
+      "status": "ok",
+      "note": "0.2.1; Stage A pending; token rotation deferred"
+    },
+    {
+      "name": "Fish Player",
+      "status": "ok",
+      "note": "Live, project shelved"
+    },
+    {
+      "name": "Streaming",
+      "status": "ok",
+      "note": ""
+    },
+    {
+      "name": "AdGuard + Cloudflare tunnel",
+      "status": "warn",
+      "note": "tether.mehdiacho.tech is a dangling hostname"
+    }
+  ],
+  "waitingOnMehdi": [
+    {
+      "text": "Rotate the two leaked credentials (Tether token, Tailscale key)",
+      "project": "tether",
+      "note": "Mehdi said ignore for now"
+    }
+  ]
+}

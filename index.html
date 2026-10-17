@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian · Projects</title>
+<style>
+:root {
+  --bg: #f6f5f1; --panel: #ffffff; --ink: #1b1d1f; --muted: #6a6f75; --line: #e3e1da;
+  --active: #1f8a4c; --pending: #c47f00; --paused: #6b7280; --idea: #6d4ad1; --done: #2563eb; --shelved: #a3a3a3; --chucked: #b91c1c;
+  --mehdi: #c2410c; --warn: #c47f00; --ok: #1f8a4c;
+  --chip: #efede6;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #121416; --panel: #1b1e21; --ink: #e8e8e6; --muted: #9aa0a6; --line: #2c3034; --chip: #25292d;
+    --active: #3cc274; --pending: #e0a52a; --paused: #8b929a; --idea: #9b7cf0; --done: #5b8def; --shelved: #6b6b6b; --chucked: #e05252; --mehdi: #f07a3c; --warn: #e0a52a; --ok: #3cc274; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1240px; margin: 0 auto; padding: 20px 16px 60px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; margin-bottom: 16px; }
+h1 { font-size: 22px; margin: 0; letter-spacing: .02em; }
+h2 { font-size: 15px; margin: 0 0 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.sub { color: var(--muted); font-size: 13px; }
+a { color: var(--done); }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+.grid { display: grid; gap: 12px; }
+.tiles { grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); margin-bottom: 12px; }
+.tile { cursor: pointer; border-left: 4px solid var(--c, var(--line)); }
+.tile .n { font-size: 26px; font-weight: 650; }
+.tile .l { color: var(--muted); font-size: 12px; text-transform: capitalize; }
+.tile.sel { outline: 2px solid var(--c); }
+.top { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-bottom: 12px; }
+#wait { grid-row: span 2; }
+.bar { display: grid; grid-template-columns: 150px 1fr 28px; align-items: center; gap: 8px; margin: 5px 0; font-size: 13px; cursor: pointer; }
+.bar .track { background: var(--chip); border-radius: 4px; height: 12px; overflow: hidden; display: flex; }
+.bar .track span { display: block; height: 100%; }
+.bar .lab { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar .num { text-align: right; color: var(--muted); }
+.bar.sel .lab { font-weight: 650; }
+ul.wait { list-style: none; margin: 0; padding: 0; }
+ul.wait li { padding: 7px 0; border-bottom: 1px solid var(--line); }
+ul.wait li:last-child { border-bottom: 0; }
+ul.wait b { color: var(--mehdi); }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 18px 0 10px; }
+.controls input { flex: 1 1 220px; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); font: inherit; }
+.controls label { color: var(--muted); font-size: 13px; display: flex; gap: 6px; align-items: center; }
+button.clear { border: 1px solid var(--line); background: var(--panel); color: var(--ink); border-radius: 8px; padding: 7px 10px; cursor: pointer; font: inherit; }
+.cards { grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
+.card { border-top: 4px solid var(--c); display: flex; flex-direction: column; gap: 6px; }
+.card h3 { margin: 0; font-size: 16px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.pill { font-size: 11px; padding: 2px 8px; border-radius: 99px; background: var(--chip); color: var(--muted); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+.pill.st { background: var(--c); color: #fff; }
+.pill.me { background: var(--mehdi); color: #fff; }
+.pill.dec { border: 1px solid var(--d); color: var(--d); background: transparent; }
+.card .sum { color: var(--muted); margin: 0; }
+.kv { display: grid; grid-template-columns: 62px 1fr; gap: 2px 8px; font-size: 13px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.kv code { font-size: 12px; }
+.ask { background: color-mix(in srgb, var(--mehdi) 12%, transparent); border-left: 3px solid var(--mehdi); padding: 6px 8px; border-radius: 4px; font-size: 13px; }
+.next { margin: 0; padding-left: 18px; font-size: 13px; }
+.unknown { color: var(--mehdi); font-style: italic; }
+.homelab { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.svc { display: flex; gap: 8px; align-items: flex-start; }
+.dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex: none; background: var(--c); }
+.err { padding: 20px; border: 1px dashed var(--mehdi); border-radius: 10px; }
+section { margin-top: 26px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>MERIDIAN · Projects</h1>
+    <span class="sub" id="meta"></span>
+  </header>
+
+  <div id="app"><p class="sub">Loading data/projects.json…</p></div>
+</main>
+
+<script>
+const STATUS = ["active", "pending", "paused", "idea", "done", "shelved", "chucked"];
+const CLOSED = new Set(["shelved", "chucked"]);
+const DECISIONS = {
+  push: ["push now", "#c2410c"], research: ["research", "#6d4ad1"], backup: ["back up", "#0e7490"],
+  keep: ["keep", "#1f8a4c"], low: ["low priority", "#8b929a"], none: ["undecided", "#c47f00"],
+  merged: ["merged", "#2563eb"], shelve: ["shelve", "#a3a3a3"], chuck: ["chuck", "#b91c1c"]
+};
+const DECISION_RANK = Object.fromEntries(Object.keys(DECISIONS).map((k, i) => [k, i]));
+const decOf = p => p.decision || "none";
+const STATUS_RANK = Object.fromEntries(STATUS.map((s, i) => [s, i]));
+const AI_LABEL = {
+  "claude-project-thread": "Claude project thread",
+  "claude-code": "Claude Code",
+  "codex": "Codex",
+  "cowork": "Cowork",
+  "gemini": "Gemini",
+  "unknown": "Unknown"
+};
+const AI_COLOR = {
+  "claude-project-thread": "#d97757", "claude-code": "#b85a3c", "codex": "#10a37f",
+  "cowork": "#8a6bd1", "gemini": "#4285f4", "unknown": "#9ca3af"
+};
+const filters = { status: null, ai: null, decision: null, q: "", hideClosed: true };
+let DATA;
+
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const css = v => `var(--${v})`;
+const waitingOnMehdi = p => p.blockedOn === "mehdi";
+
+function sortProjects(list) {
+  return [...list].sort((a, b) =>
+    (waitingOnMehdi(b) - waitingOnMehdi(a)) ||
+    (DECISION_RANK[decOf(a)] - DECISION_RANK[decOf(b)]) ||
+    (STATUS_RANK[a.status] - STATUS_RANK[b.status]) ||
+    String(b.lastActivity || "").localeCompare(String(a.lastActivity || "")) ||
+    a.name.localeCompare(b.name));
+}
+
+function visible() {
+  const q = filters.q.toLowerCase();
+  return DATA.projects.filter(p =>
+    (!filters.status || p.status === filters.status) &&
+    (!filters.ai || (p.ai?.kind || "unknown") === filters.ai) &&
+    (!filters.decision || decOf(p) === filters.decision) &&
+    (!filters.hideClosed || filters.status || filters.decision || !CLOSED.has(p.status)) &&
+    (!q || JSON.stringify(p).toLowerCase().includes(q)));
+}
+
+function countBy(list, key) {
+  const m = {};
+  for (const p of list) { const k = key(p); m[k] = (m[k] || 0) + 1; }
+  return m;
+}
+
+function bars(counts, colorOf, labelOf, filterKey) {
+  const max = Math.max(1, ...Object.values(counts));
+  return Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([k, n]) => `
+    <div class="bar ${filters[filterKey] === k ? "sel" : ""}" data-f="${filterKey}" data-v="${esc(k)}" title="Filter by ${esc(labelOf(k))}">
+      <span class="lab">${esc(labelOf(k))}</span>
+      <span class="track"><span style="width:${(n / max) * 100}%;background:${colorOf(k)}"></span></span>
+      <span class="num">${n}</span>
+    </div>`).join("");
+}
+
+function where(p) {
+  const w = p.where || {};
+  const parts = [];
+  if (w.repo) parts.push(`<a href="https://github.com/${esc(w.repo)}" target="_blank" rel="noopener">${esc(w.repo)}</a>${w.branch ? ` <code>@${esc(w.branch)}</code>` : ""}`);
+  else parts.push(`<span class="unknown">no remote</span>`);
+  if (w.path) parts.push(`<code>${esc(w.path)}</code>`);
+  if (w.notes) parts.push(`<span class="sub">${esc(w.notes)}</span>`);
+  return parts.join("<br>");
+}
+
+function aiCell(p) {
+  const ai = p.ai || { kind: "unknown" };
+  if (ai.kind === "unknown" && !ai.name) return `<span class="unknown">unknown</span>`;
+  const main = `${esc(AI_LABEL[ai.kind] || ai.kind)}${ai.name ? `: <b>${esc(ai.name)}</b>` : ""}`;
+  return main + (ai.also?.length ? `<br><span class="sub">also ${ai.also.map(esc).join(", ")}</span>` : "");
+}
+
+function card(p) {
+  const next = (p.next || []).filter(Boolean);
+  return `<article class="panel card" style="--c:${css(p.status)}">
+    <h3>${esc(p.name)}
+      <span class="pill st">${esc(p.status)}</span>
+      ${waitingOnMehdi(p) ? `<span class="pill me">waiting on Mehdi</span>` : ""}
+      <span class="pill dec" style="--d:${DECISIONS[decOf(p)]?.[1] || "#999"}">${esc(DECISIONS[decOf(p)]?.[0] || p.decision)}</span>
+    </h3>
+    <p class="sum">${esc(p.summary)}</p>
+    <dl class="kv">
+      <dt>AI</dt><dd>${aiCell(p)}</dd>
+      <dt>Code</dt><dd>${where(p)}</dd>
+      ${p.stack ? `<dt>Stack</dt><dd>${esc(p.stack)}</dd>` : ""}
+      ${p.mergedInto ? `<dt>Merged</dt><dd>into ${esc(DATA.projects.find(x => x.id === p.mergedInto)?.name || p.mergedInto)}</dd>` : ""}
+      <dt>Last</dt><dd>${p.lastActivity ? esc(p.lastActivity) : `<span class="sub">unknown</span>`}</dd>
+    </dl>
+    ${p.ask ? `<div class="ask"><b>Mehdi:</b> ${esc(p.ask)}</div>` : ""}
+    ${next.length ? `<ul class="next">${next.map(n => `<li>${esc(n)}</li>`).join("")}</ul>` : ""}
+  </article>`;
+}
+
+function render() {
+  const all = DATA.projects;
+  const list = sortProjects(visible());
+  const byStatus = countBy(all, p => p.status);
+  const live = all.filter(p => !CLOSED.has(p.status));
+  const byAI = countBy(live, p => p.ai?.kind || "unknown");
+  const byDecision = countBy(all, decOf);
+  const waits = [
+    ...sortProjects(all.filter(waitingOnMehdi)).map(p => ({ project: p, text: p.ask })),
+    ...(DATA.waitingOnMehdi || []).map(w => ({ project: all.find(p => p.id === w.project), text: w.text, note: w.note }))
+  ];
+  const unknownAI = live.filter(p => (p.ai?.kind || "unknown") === "unknown").length;
+
+  document.getElementById("app").innerHTML = `
+    <div class="grid tiles">
+      ${STATUS.map(s => `<div class="panel tile ${filters.status === s ? "sel" : ""}" style="--c:${css(s)}" data-f="status" data-v="${s}">
+        <div class="n">${byStatus[s] || 0}</div><div class="l">${s}</div></div>`).join("")}
+      <div class="panel tile" style="--c:var(--mehdi)" id="jump-wait"><div class="n">${waits.length}</div><div class="l">waiting on Mehdi</div></div>
+    </div>
+
+    <div class="grid top">
+      <div class="panel" id="wait">
+        <h2>Waiting on Mehdi</h2>
+        <ul class="wait">${waits.map(w => `<li><b>${esc(w.project?.name || "General")}</b>: ${esc(w.text || "see card")}${w.note ? ` <span class="sub">(${esc(w.note)})</span>` : ""}</li>`).join("") || `<li class="sub">Nothing. Good.</li>`}</ul>
+      </div>
+      <div class="panel">
+        <h2>By status</h2>
+        ${bars(byStatus, k => css(k), k => k, "status")}
+      </div>
+      <div class="panel">
+        <h2>By decision (2026-10-16)</h2>
+        ${bars(byDecision, k => DECISIONS[k]?.[1] || "#999", k => DECISIONS[k]?.[0] || k, "decision")}
+      </div>
+      <div class="panel">
+        <h2>By AI (open projects)</h2>
+        ${bars(byAI, k => AI_COLOR[k] || "#999", k => AI_LABEL[k] || k, "ai")}
+        <p class="sub" style="margin:8px 0 0">${unknownAI} open projects have no known AI home. Shelved and chucked are excluded.</p>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search name, repo, path, thread…" value="${esc(filters.q)}">
+      <label><input type="checkbox" id="arch" ${filters.hideClosed ? "checked" : ""}> hide shelved &amp; chucked</label>
+      ${filters.status || filters.ai || filters.decision ? `<button class="clear" id="clear">Clear filters (${[filters.status, filters.ai && (AI_LABEL[filters.ai] || filters.ai), filters.decision && DECISIONS[filters.decision]?.[0]].filter(Boolean).join(", ")})</button>` : ""}
+      <span class="sub">${list.length} shown · sorted: waiting on Mehdi, then decision (push now first), then status, then most recent</span>
+    </div>
+
+    <div class="grid cards">${list.map(card).join("") || `<p class="sub">No projects match.</p>`}</div>
+
+    <section>
+      <h2>Homelab</h2>
+      <div class="grid homelab">
+        ${(DATA.homelab || []).map(s => `<div class="panel svc" style="--c:${css(s.status === "ok" ? "ok" : s.status === "warn" ? "warn" : "mehdi")}">
+          <span class="dot"></span><div><b>${esc(s.name)}</b>${s.note ? `<div class="sub">${esc(s.note)}</div>` : ""}</div></div>`).join("")}
+      </div>
+    </section>`;
+
+  const q = document.getElementById("q");
+  q.oninput = () => { filters.q = q.value; const pos = q.selectionStart; render(); const n = document.getElementById("q"); n.focus(); n.setSelectionRange(pos, pos); };
+  document.getElementById("arch").onchange = e => { filters.hideClosed = e.target.checked; render(); };
+  document.getElementById("clear")?.addEventListener("click", () => { filters.status = filters.ai = filters.decision = null; render(); });
+  document.getElementById("jump-wait").onclick = () => document.getElementById("wait").scrollIntoView({ behavior: "smooth" });
+  document.querySelectorAll("[data-f]").forEach(el => el.onclick = () => {
+    const f = el.dataset.f, v = el.dataset.v;
+    filters[f] = filters[f] === v ? null : v;
+    render();
+  });
+}
+
+fetch("data/projects.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(d => {
+    DATA = d;
+    document.getElementById("meta").textContent = `${d.projects.length} projects · data updated ${d.updated}${d.updatedBy ? " by " + d.updatedBy : ""}`;
+    render();
+  })
+  .catch(e => {
+    document.getElementById("app").innerHTML = `<div class="err"><b>Couldn't load data/projects.json</b> (${esc(e.message)}).<br>
+      Browsers block reading local files from a page opened by double-click. Serve the folder instead: run <code>python -m http.server 8000</code> here and open <code>http://localhost:8000</code>.</div>`;
+  });
+</script>
+</body>
+</html>
